@@ -1,4 +1,5 @@
 from .file_folder_commands import handle_file_folder_command
+from .process_comands import handle_process_command
 from exceptions import CustomError , ErrorType , handle_exception
 from utils import is_correct_path
 import os
@@ -11,11 +12,12 @@ def handle_command(command_input):
         command_name = parts[0].lower()
         args = parts[1:]
         print(f"Debug: command_name={command_name}, args={args}")
-        path = args[0]
         print(args)
 
         if command_name in ["copy","move","delete"]:
-           handle_file_folder_command(command_name , args)     
+           handle_file_folder_command(command_name , args)  
+        elif command_name in ["list_proc" , "kill_proc"]:
+            handle_process_command(command_name,args)   
         else:
              raise CustomError(ErrorType.INVALID_COMMAND, f"Unknown command: {command_name}")
 

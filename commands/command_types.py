@@ -4,5 +4,7 @@ class CommandType(Enum) :
     COPY_FILE = 'COPY_FILE'
     MOVE_FILE = 'MOVE_FILE'
     DELETE_FILE = 'DELETE_FILE'
+    LIST_PROC = 'LIST_PROC'
+    DELETE_PROC = 'DELETE_PROC'
 
 
