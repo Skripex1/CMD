@@ -76,6 +76,7 @@ def display_help(args):
         print("Available commands: \n")
         print("copy, move, delete (file/folder operations)")
         print("list_proc, kill_proc (process management)")
+        print("create_reg, modify_reg, delete_reg, list_reg (registry operations)")
         print("help (display this message)")
     elif args[0] == "copy":
         print("Usage: copy <source> <destination>")
@@ -92,5 +93,17 @@ def display_help(args):
     elif args[0] == "kill_proc":
         print("Usage: kill_proc <pid>")
         print("Description: Kills the process with the given PID.")
+    elif args[0] == "create_reg":
+        print("Usage: create_reg <key_path> <value_name> <value>")
+        print("Description: Creates a new registry key at the specified path with the provided value.")
+    elif args[0] == "modify_reg":
+        print("Usage: modify_reg <key_path> <value_name> <new_value>")
+        print("Description: Modifies an existing registry key's value at the specified path.")
+    elif args[0] == "delete_reg":
+        print("Usage: delete_reg <key_path> <value_name>")
+        print("Description: Deletes a registry key or value at the specified path.")
+    elif args[0] == "list_reg":
+        print("Usage: list_reg <key_path>")
+        print("Description: Lists all the values under the specified registry key.")
     else:
         print(f"Error: No help available for command '{args[0]}'")
