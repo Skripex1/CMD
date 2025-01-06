@@ -1,7 +1,7 @@
 from .file_folder_commands import handle_file_folder_command
 from .process_comands import handle_process_command
 from exceptions import CustomError , ErrorType , handle_exception
-from utils import is_correct_path
+from utils import is_correct_path,display_help
 import os
 def handle_command(command_input):
     try:
@@ -13,6 +13,10 @@ def handle_command(command_input):
         args = parts[1:]
         print(f"Debug: command_name={command_name}, args={args}")
         print(args)
+
+        if command_name == "help":
+            display_help(args)
+            return
 
         if command_name in ["copy","move","delete"]:
            handle_file_folder_command(command_name , args)  

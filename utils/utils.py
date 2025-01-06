@@ -70,3 +70,27 @@ def delete_src(src):
         os.remove(src)
     else:
         shutil.rmtree(src)
+
+def display_help(args):
+    if not args:
+        print("Available commands: \n")
+        print("copy, move, delete (file/folder operations)")
+        print("list_proc, kill_proc (process management)")
+        print("help (display this message)")
+    elif args[0] == "copy":
+        print("Usage: copy <source> <destination>")
+        print("Description: Copies a file or folder from the source path to the destination path.")
+    elif args[0] == "move":
+        print("Usage: move <source> <destination>")
+        print("Description: Moves a file or folder from the source path to the destination path.")
+    elif args[0] == "delete":
+        print("Usage: delete <path>")
+        print("Description: Deletes a file or folder at the specified path.")
+    elif args[0] == "list_proc":
+        print("Usage: list_proc")
+        print("Description: Lists the running processes.")
+    elif args[0] == "kill_proc":
+        print("Usage: kill_proc <pid>")
+        print("Description: Kills the process with the given PID.")
+    else:
+        print(f"Error: No help available for command '{args[0]}'")
