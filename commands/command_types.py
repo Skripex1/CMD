@@ -6,5 +6,9 @@ class CommandType(Enum) :
     DELETE_FILE = 'DELETE_FILE'
     LIST_PROC = 'LIST_PROC'
     DELETE_PROC = 'DELETE_PROC'
+    LIST_REG = 'LIST_REG'
+    MODIF_REG = 'DELETE_REG'
+    CREATE_REG = 'CREATE_REG'
+    DELETE_REG = 'DELETE_REG'
 
 
