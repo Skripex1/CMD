@@ -5,8 +5,12 @@ from exceptions import CustomError,ErrorType,handle_exception
 def handle_process_command(command_name,args):
     try:
         if command_name == "list_proc":
+            if (len(args) != 0):
+                raise CustomError(ErrorType.INVALID_COMMAND,"Usage: list_proc ")
             command_instance = ListProcessCommand()
         elif command_name == "kill_proc":
+            if (len(args) < 1):
+                raise CustomError(ErrorType.INVALID_COMMAND,"Usage: kill_proc <pid> ")
             command_instance = KillProcessCommand(int(args[0]))
             if (len(args) > 1):
                 ce : CustomError = CustomError(ErrorType.INVALID_COMMAND, command_instance.usage)

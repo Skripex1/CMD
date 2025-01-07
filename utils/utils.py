@@ -6,22 +6,22 @@ import shutil
 def is_correct_path (path):
     if not os.path.exists(path):
         #print(f"{path} nu exista")
-        raise CustomError(ErrorType.NOT_EXISTING_PATH, "Path does not exist or is wrong.")
+        raise CustomError(ErrorType.NOT_EXISTING_PATH,f"{path} does not exist or is wrong.")
 
 def file_exists (path):
     is_correct_path(path)
     if not os.path.isfile(path):
-        raise  CustomError(ErrorType.FILE_NOT_FOUND,"'{path}' is not a file.")
+        raise  CustomError(ErrorType.FILE_NOT_FOUND,f"'{path}' is not a file.")
         
 def directory_exists (path):
     if not os.path.exists(path) :
-        raise CustomError(ErrorType.NOT_EXISTING_PATH,"'{path}' is not a correct path.")
+        raise CustomError(ErrorType.NOT_EXISTING_PATH,f"'{path}' is not a correct path.")
     elif not os.path.isdir(path):
-        raise  CustomError(ErrorType.FILE_NOT_FOUND,"'{path}' is not a directory.")
+        raise  CustomError(ErrorType.FILE_NOT_FOUND,f"'{path}' is not a directory.")
     
 def file_folder_exits(path):
     if not os.path.exists(path) :
-        raise CustomError(ErrorType.NOT_EXISTING_PATH,"'{path}' is not a correct path.")
+        raise CustomError(ErrorType.NOT_EXISTING_PATH,f"'{path}' is not a correct path.")
     if not os.path.isfile(path) and not os.path.isdir(path):
         raise CustomError(ErrorType.FILE_NOT_FOUND, f"'{path}' is neither a file nor a directory.")
     
@@ -32,6 +32,7 @@ def continue_after_arguments (number,args,ce : CustomError) :
     user_input = input("Do you want to continue with the copy operation? (yes/no): ").strip().lower()
     if user_input not in ["yes", "y"]:
         raise ce
+    print("Completed !")
 
 def is_file(src):
     if os.path.isfile(src):

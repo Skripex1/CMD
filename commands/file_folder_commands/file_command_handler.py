@@ -7,6 +7,8 @@ from utils import continue_after_arguments
 def handle_file_folder_command(command_name , args) :
     try :
         if command_name == "copy" or command_name == "move":
+            if (len(args) < 2):
+                raise CustomError(ErrorType.INVALID_COMMAND,"Usage: copy/move <src> <dst>")
             if (command_name == "copy"):
                 command_instance = CopyFileFolderCommand(args[0],args[1])
             else:
@@ -15,6 +17,8 @@ def handle_file_folder_command(command_name , args) :
                 ce : CustomError = CustomError(ErrorType.INVALID_COMMAND, command_instance.usage)
                 continue_after_arguments(2,args,ce)
         elif command_name == "delete":
+             if (len(args) < 1):
+                raise CustomError(ErrorType.INVALID_COMMAND,"Usage: delete <src>")
              command_instance = DeleteFileFolderCommand(args[0])
              if (len(args) > 1):
                 ce : CustomError = CustomError(ErrorType.INVALID_COMMAND, command_instance.usage)
