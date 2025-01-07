@@ -4,16 +4,25 @@ from .registry_commands import handle_registry_command
 from exceptions import CustomError , ErrorType , handle_exception
 from utils import is_correct_path,display_help
 import os
+DEBUG = False
+
 def handle_command(command_input):
+    global DEBUG
     try:
+
+        if "--debug" in command_input:
+            DEBUG = True
+            command_input = command_input.replace("--debug", "").strip()
+
         parts = command_input.strip().split()
         if not parts :
             raise CustomError(ErrorType.INVALID_COMMAND, "No command provided")
         
         command_name = parts[0].lower()
         args = parts[1:]
-        print(f"Debug: command_name={command_name}, args={args}")
-        print(args)
+        
+        if DEBUG:
+            print(f"[DEBUG] Command name: {command_name}, Arguments: {args}")
 
         if command_name == "help":
             display_help(args)
