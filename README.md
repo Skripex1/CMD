@@ -42,11 +42,11 @@ The general syntax for each command is:
 
 To get more details about a specific command, type: 
 
-help <command>
+`help <command>`
 
 For example :
 
- help <copy>
+ `help <copy>`
 
 This will show the usage and description for the `copy` command.
 
