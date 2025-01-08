@@ -21,16 +21,16 @@ def handle_registry_command(command_name, args):
             if (len(args) > 2):
                 ce : CustomError = CustomError(ErrorType.INVALID_COMMAND, command_instance.usage)
                 continue_after_arguments(2,args,ce)
-        elif command_name == "modif_reg":
+        elif command_name == "modify_reg":
             if (len(args) < 3):
-                raise CustomError(ErrorType.INVALID_COMMAND,"Usage: create_reg <key_path> <subkey_name> <value> ")
+                raise CustomError(ErrorType.INVALID_COMMAND,"Usage: modify_reg <key_path> <subkey_name> <value> ")
             command_instance = ModifyRegistryCommand(args[0], args[1], args[2])
             if (len(args) > 3):
                 ce : CustomError = CustomError(ErrorType.INVALID_COMMAND, command_instance.usage)
                 continue_after_arguments(3,args,ce)
         elif command_name == "delete_reg":
             if (len(args) < 2):
-                raise CustomError(ErrorType.INVALID_COMMAND,"Usage: create_reg <key_path> <subkey_name> ")
+                raise CustomError(ErrorType.INVALID_COMMAND,"Usage: delete_reg <key_path> <subkey_name> ")
             command_instance = DeleteRegistryCommand(args[0], args[1])
             if (len(args) > 2):
                 ce : CustomError = CustomError(ErrorType.INVALID_COMMAND, command_instance.usage)

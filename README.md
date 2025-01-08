@@ -33,7 +33,7 @@ The general syntax for each command is:
 - `delete <path>`: Deletes the specified file or folder.
 - `list_proc`: Lists all running processes.
 - `kill_proc <pid>`: Kills a process by its PID.
-- `create_reg <key_path> <value_name> <value>`: Creates a registry key.
+- `create_reg <key_path> <subkey_name>`: Creates a registry key.
 - `modify_reg <key_path> <value_name> <new_value>`: Modifies a registry key.
 - `delete_reg <key_path> <value_name>`: Deletes a registry key or value.
 - `list_reg <key_path>`: Lists registry values under a key.

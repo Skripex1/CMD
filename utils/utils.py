@@ -95,7 +95,7 @@ def display_help(args):
         print("Usage: kill_proc <pid>")
         print("Description: Kills the process with the given PID.")
     elif args[0] == "create_reg":
-        print("Usage: create_reg <key_path> <value_name> <value>")
+        print("Usage: create_reg <key_path> <subkey_name>")
         print("Description: Creates a new registry key at the specified path with the provided value.")
     elif args[0] == "modify_reg":
         print("Usage: modify_reg <key_path> <value_name> <new_value>")
